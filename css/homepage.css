@@ -1,0 +1,98 @@
+.hd-container {
+    display: flex;
+    flex-direction: row;
+    background: #ddd;
+}
+
+.hd-col {
+    padding: 5px;
+    margin: 5px;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    background: #fff;
+    border-radius: .25rem;
+}
+
+.hd-card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border-bottom: 1px solid black; */
+    padding: 5px;
+    
+}
+
+.hd-card-header-text {
+    font-size: 24px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.hd-card-content {
+    /* padding: 5px; */
+}
+
+.hd-card-empty-message {
+    padding: 5px;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+.hd-issue-card {
+    background: white;
+}
+
+.hd-issue-card-item {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    padding: 10px;
+    margin: 10px 5px 10px 5px;
+    border-radius: .25rem;
+    
+}
+
+.hd-issue-card-item:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.hd-issue-card-item-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.hd-issue-card-item-content {
+
+}
+
+.hd-badge {
+    align-content: center;
+    color: white;
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: #0d6efd;
+    border-radius: .25rem;
+    
+}
+
+a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
+
+.container {
+    width: 75%;
+    margin: auto;
+    background: #ddd;
+}

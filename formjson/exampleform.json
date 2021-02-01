@@ -1,0 +1,16 @@
+{
+    "form": [
+        {
+            "internalid":"hello",
+            "label": "Hello",
+            "type": "text",
+            "caption": "Hello"
+        },
+        {
+            "internalid":"world",
+            "label": "world",
+            "type": "text",
+            "caption": "world"
+        }
+    ]
+}
