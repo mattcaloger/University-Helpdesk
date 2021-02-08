@@ -1,3 +1,7 @@
+<?php 
+    require_once("repositories/CurrentUserRepository.php");
+?>
+
 <div class="header">
     <div class="header-block left">
         <a class="nav-link active" href="/">
@@ -10,9 +14,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="/issues.php">Issues</a>
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="/processes.php">Processes</a>
-            </li> -->
+            <?php if( CurrentUserRepository::getCurrentUserDetails()->user_is_technician == 1 ) : ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="/technician.php">Technician</a>
+                </li>
+            <?php endif; ?>
         </ul>
     </div>
     

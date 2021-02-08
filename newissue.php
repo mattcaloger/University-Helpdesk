@@ -13,6 +13,8 @@
         
         require_once("Repositories/CurrentUserRepository.php");
 
+        require_once("Repositories/IssueRepository.php");
+
         require_once("data/Database.php");
 
 		if(!isset($_COOKIE['sessionToken'])){
@@ -34,15 +36,11 @@
             $show_alert = true;
             $alert_type="alert-success";
             $alert_style="";
-            $alert_message = 'Issue ' . $summary . ' has been received. <a href="/">Go back</a>';
+            $alert_message = 'Issue ' . $summary . ' has been received. <a href="/issues.php">Go to your open issues</a>';
 
             $creator=CurrentUserRepository::getUserId();
-        
-            $statement = $db->prepare('INSERT INTO `tickets`(`ticket_summary`, `ticket_details`, `ticket_status`, `ticket_creator`, `ticket_team_owner`, `ticket_technician_owner`) VALUES (:summary,:details,1,:creator,null,null);');
-            $statement->bindParam(":summary", $summary);
-            $statement->bindParam(":details", $details);
-            $statement->bindParam(":creator", $creator);
-            $statement->execute();
+
+            IssueRepository::createIssue($summary, $details, $creator);
         } 
     ?>
     

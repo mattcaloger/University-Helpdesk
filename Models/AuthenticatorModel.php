@@ -19,9 +19,7 @@
                 $hashedPassword = $userInfo->user_password;
 
                 $verify = password_verify($plaintextPassword, $hashedPassword);
-
-                echo("***password_check: " . $verify);
-
+                
                 if($verify == true) {
                     return true;
                 } else {

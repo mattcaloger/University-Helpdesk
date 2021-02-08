@@ -20,45 +20,34 @@
 
 		require_once "Repositories/CurrentUserRepository.php";
 
-		$tickets = CurrentUserRepository::getUserOpenTickets();
-
 	?>
 
     <div class="container">
         <div class="hd-issue-card">
             <div class="hd-card-header">
                 <div class="hd-card-header-text">
-                    <div>Open Issues <span class="hd-badge"><?= count($tickets) ?></span></div>
-                </div>
-                <div class="hd-card-header-button">
-                    <a href="/newissue.php">
-                        <button class="btn btn-color-tyndale-blue">
-                            Open A New Issue
-                        </button>	
-                    </a>		
+                    <div>What can we help you with?</div>
                 </div>
             </div>
             <div class="hd-card-content">
-                <?php if(empty($tickets)) : ?>
-                    <div>You have no open issues.</div>
-                <?php else : ?>
-                    <?php foreach($tickets as $row): ?>
-                        <div class="hd-issue-card-item" onclick="location.href='/issue.php/?id=<?= $row['ticket_id'] ?>'">
-                            <div class="hd-issue-card-item-title">
-                                #<?= $row['ticket_id'] ?>
-                            </div>
-                            <div class="hd-issue-card-item-content">
-                                <div>Status: <?= $row['status_name'] ?></div>
-                                <div>Summary: <?= $row['ticket_summary'] ?></div>
-                            </div>
+                <div class="hd-issue-card-item" onclick="location.href='/newissue.php'">
+                    <div class="hd-issue-card-item-title">
+                        Open a new issue
                     </div>
+                </div>
 
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                <div class="hd-issue-card-item" onclick="location.href='/issues.php'">
+                    <div class="hd-issue-card-item-title">
+                        View my current open issues
+                    </div>
+                </div>
+
+                <div class="hd-issue-card-item" onclick="location.href='helpdesk.tyndale.ca'">
+                    <div class="hd-issue-card-item-title">
+                        Start a process
+                    </div>
+                </div>
                 
-                <button class="btn btn-color-tyndale-blue">
-                    View closed Issues
-                </button>	
             </div>
         </div>
     </div>
