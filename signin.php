@@ -12,13 +12,11 @@
         require_once("./Models/AuthenticatorModel.php");
         require_once("./Repositories/SessionRepository.php");
         require_once("./Repositories/UserRepository.php");
+        require_once("./Security/Security.php");
 
-        if(isset($_COOKIE['sessionToken'])){
-            header('Location: /');
-            exit;
+        if(isset($_COOKIE['sessionToken'])) {
+            Security::redirectToHomePage();
         }
-
-        // TODO: fix this to remove IF tree
         
         if(isset($_POST['password']) && isset($_POST['username'])) {
             $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
@@ -33,10 +31,8 @@
                     $createSession = SessionRepository::saveSession($userInfo->user_id);
     
                     if($createSession[0] == true) {
-                        setcookie('sessionToken', $createSession[1], $createSession[2]);
-                        setcookie('user_first_name', $userInfo->user_first_name);
-                        header('Location: /');
-                        exit;
+                        Security::setAuthenticationCookies($createSession[1], $createSession[2], $userInfo->user_first_name);
+                        Security::redirectToHomepage();
                     }
                 } else {
                     $error = "Incorrect username or password.";
@@ -45,7 +41,7 @@
                 $error = "Incorrect username or password.";
             }
         } else {
-            $error = "Incorrect username or password.";
+            $error = "";
         }
         
     ?>

@@ -16,11 +16,9 @@
         require_once("Repositories/IssueRepository.php");
 
         require_once("data/Database.php");
+        require_once("Security/Security.php");
 
-		if(!isset($_COOKIE['sessionToken'])){
-			header('Location: /signin.php');
-            exit;
-        }
+        Security::checkSession();
         $show_alert = false;
         $alert_type="success";
         $alert_style="display:none;";

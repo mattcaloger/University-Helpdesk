@@ -12,10 +12,9 @@
         require_once("./Repositories/UserRepository.php");
         require_once("./Repositories/CurrentUserRepository.php");
 
-        if(!isset($_COOKIE['sessionToken'])){
-			header('Location: /signin.php');
-            exit;
-        }
+        require_once("Security/Security.php");
+
+        Security::checkSession();
         
         $currentUser = CurrentUserRepository::getCurrentUserDetails();
         if($currentUser->user_is_admin != 1) {

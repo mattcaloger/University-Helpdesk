@@ -10,16 +10,11 @@
 </head>
 <body>
     <?php
-		require_once "Components/navbar.php";
+        require_once("Components/navbar.php");
+        require_once("Repositories/CurrentUserRepository.php");
+        require_once("Security/Security.php");
 
-        // If user is not signed in, redirect to sign in page
-		if(!isset($_COOKIE['sessionToken'])){
-			header('Location: /signin.php');
-            exit;
-		}
-
-		require_once "Repositories/CurrentUserRepository.php";
-
+        Security::checkSession();
 	?>
 
     <div class="container">
@@ -42,7 +37,7 @@
                     </div>
                 </div>
 
-                <div class="hd-issue-card-item" onclick="location.href='helpdesk.tyndale.ca'">
+                <div class="hd-issue-card-item" onclick="location.href='http://helpdesk.tyndale.ca'">
                     <div class="hd-issue-card-item-title">
                         Start a process
                     </div>

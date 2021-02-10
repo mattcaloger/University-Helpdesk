@@ -15,10 +15,9 @@
         require_once ("Components/navbar.php");
         require_once ("Repositories/CurrentUserRepository.php");
 
-        if(!isset($_COOKIE['sessionToken'])){
-            header('Location: /signin.php');
-            exit;
-        }
+        require_once("Security/Security.php");
+
+        Security::checkSession();
 
 
         $userDetails = CurrentUserRepository::getCurrentUserDetails();
@@ -28,7 +27,9 @@
             exit;
         }
 
-        
+        if(Security::userHasTechnicianAuthority() === false){
+            Security::redirectToHomepage();
+        }
     ?>
 
     <div class="container">

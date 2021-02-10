@@ -10,15 +10,12 @@
 </head>
 <body>
     <?php
-		require_once "Components/navbar.php";
+		require_once("Components/navbar.php");
+        require_once("Security/Security.php");
 
-        // If user is not signed in, redirect to sign in page
-		if(!isset($_COOKIE['sessionToken'])){
-			header('Location: /signin.php');
-            exit;
-		}
+        Security::checkSession();
 
-		require_once "Repositories/CurrentUserRepository.php";
+		require_once("Repositories/CurrentUserRepository.php");
 
 		$tickets = CurrentUserRepository::getUserOpenTickets();
 

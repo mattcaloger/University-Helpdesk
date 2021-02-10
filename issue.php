@@ -19,30 +19,47 @@
 
         require_once("Repositories/IssueUpdateRepository.php");
 
-        if(!isset($_COOKIE['sessionToken'])){
-			header('Location: /signin.php');
-            exit;
-		}
+        require_once("Security/Security.php");
+
+        Security::checkSession();
+
+        if(isset($_GET['id']) === true){
+            $id = $_GET['id'];
+
+            $ticket = IssueRepository::getTicketWithUserDetails($id);
+    
+            $updates = IssueUpdateRepository::getUpdatesByTicketId($id);
+    
+            require("Repositories/StatusRepository.php");
+            $statuses = StatusRepository::getStatusList();
+    
+            
+            $userDetails = CurrentUserRepository::getCurrentUserDetails();
+        } else {
+            Security::redirectToHomepage();
+        }
         
-        $id = $_GET['id'];
-
-        $ticket = IssueRepository::getTicketWithUserDetails($id);
-
-        $updates = IssueUpdateRepository::getUpdatesByTicketId($id);
-
-        require("Repositories/StatusRepository.php");
-        $statuses = StatusRepository::getStatusList();
-
-        
-        $userDetails = CurrentUserRepository::getCurrentUserDetails();
-
-        
-
         // check if user has authority to view this ticket
 
-        // if($ticket->creator) {
+        $hasAuthority = false;
+
+        if(Security::userHasTechnicianAuthority() === true) {
+            $hasAuthority = true;
+        }
+
+        if(Security::userHasAdminAuthority() === true) {
             
-        // }
+            $hasAuthority = true;
+        }
+
+        if(Security::userHasAuthorityToAccessObjectByUserId($ticket->ticket_creator) === true) {
+            $hasAuthority = true;
+        }
+        
+        if($hasAuthority === false) {
+            Security::redirectToHomepage();
+        }
+        
     ?>
 
 <div class="container">

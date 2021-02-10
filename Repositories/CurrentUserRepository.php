@@ -3,17 +3,23 @@
 
     class CurrentUserRepository {
         public static function getUserId() {
-            $db = Database::getConnection();
-            $session_token = $_COOKIE['sessionToken'];
-    
-            $statement = $db->prepare("SELECT * FROM `sessions` INNER JOIN users ON sessions.user_id=users.user_id WHERE `session_token`=:session_token;");
-            $statement->bindParam(":session_token", $session_token);
-            $statement->execute();
-            $result = $statement->fetch(PDO::FETCH_OBJ);
-            return $result->user_id;
+            try {
+                $db = Database::getConnection();
+                $session_token = $_COOKIE['sessionToken'];
+        
+                $statement = $db->prepare("SELECT * FROM `sessions` INNER JOIN users ON sessions.user_id=users.user_id WHERE `session_token`=:session_token;");
+                $statement->bindParam(":session_token", $session_token);
+                $statement->execute();
+                $result = $statement->fetch(PDO::FETCH_OBJ);
+                return $result->user_id;
+            } catch (PDOException $e) {
+                die("An error has occured.");
+            }
+            
         }
     
         public static function getUserOpenTickets() {
+            try {
             $db = Database::getConnection();
             $session_token = $_COOKIE['sessionToken'];
             $statement = $db->prepare("SELECT * FROM sessions INNER JOIN tickets ON sessions.user_id = tickets.ticket_creator INNER JOIN ticket_status ON tickets.ticket_status = ticket_status.status_id WHERE `session_token`=:session_token;");
@@ -21,6 +27,9 @@
             $statement->execute();
             $result = $statement->fetchAll();
             return ($result);
+            } catch (PDOException $e) {
+                die("An error has occured.");
+            }
         }
     
         public static function getCurrentUserDetails() {

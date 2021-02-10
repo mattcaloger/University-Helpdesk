@@ -3,10 +3,9 @@
     require_once("data/Database.php");
     require_once("Repositories/CurrentUserRepository.php");
 
-    if(!isset($_COOKIE['sessionToken'])){
-        header('Location: /signin.php');
-        exit;
-    }
+    require_once("Security/Security.php");
+
+        Security::checkSession();
 
     $summary = filter_var($_POST['newSummary'], FILTER_SANITIZE_STRING);
     $id = filter_var($_POST['ticket_id'], FILTER_SANITIZE_STRING);
