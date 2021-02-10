@@ -5,30 +5,35 @@
         public static function checkSession() {
             try {
                 $currentToken = $_COOKIE['sessionToken'];
+                $sessionValid = true;
 
                 // check if session token is empty, if so, redirect to sign in
                 if(!isset($currentToken) || empty($currentToken)) {
-                    throw new Exception("Invalid token.");
+                    $sessionValid = false;
                 }
     
                 $currentSession = SessionRepository::getSessionByToken($currentToken);
     
                 // check if session exists, if not, redirect to sign in page
                 if($currentSession === false) {
-                    throw new Exception("Invalid session.");
+                    $sessionValid = false;
                 }
 
-                // check if session expired, if so, redirect to sign in page
-                // $isExpired = strtotime($currentSession->session_expires) <= time();
-                // if($isExpired == true) {
-                //     self::unsetAuthenticationCookies();
-                //     throw new Exception("Expired session.");
-                // }
+                //check if session expired, if so, redirect to sign in page
+                $isExpired = strtotime($currentSession->session_expires) <= time();
+                if($isExpired == true) {
+                    self::unsetAuthenticationCookies();
+                    $sessionValid = false;
+                }
 
-                return true;
+                if($sessionValid === false) {
+                    self::redirectToSignIn();
+                }
+
+                return $sessionValid;
             } catch (Exception $e) {
-                self::redirectToSignIn();
-                return false;
+                
+                echo $e;
             }
         }
 
