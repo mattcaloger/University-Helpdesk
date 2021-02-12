@@ -8,7 +8,7 @@
     ?>
     Owned Tickets
     <?php if(empty($ownedTickets)) : ?>
-        <div>You have no uncompleted assigned ticket.</div>
+        <div>You have no incompleted assigned tickets.</div>
     <?php else : ?>
         <?php foreach($ownedTickets as $row): ?>
             <div class="hd-issue-card-item" onclick="location.href='/issue.php/?id=<?= $row->ticket_id ?>'">

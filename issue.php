@@ -30,7 +30,7 @@
     
             $updates = IssueUpdateRepository::getUpdatesByTicketId($id);
     
-            require("Repositories/StatusRepository.php");
+            require_once("Repositories/StatusRepository.php");
             $statuses = StatusRepository::getStatusList();
     
             
@@ -62,56 +62,49 @@
         
     ?>
 
-<div class="container">
-    <div class="content">
-        <div class="content-item ticket-details hd-col">
-        
-        <div class="hd-card-header">
-        <h1>Issue Details</h1>
-        </div>
-        <div class="hd-issue-card-item">
-            <h2><b>Ticket ID: </b><?= $ticket->ticket_id ?></h2>
-            User: <?= $ticket->user_first_name ?> <?= $ticket->user_last_name ?>
-
-            <?php require_once("Views/IssueUpdateFormView.php") ?>
-        </div>
+    <div class="container">
+        <div class="content">
+            <div class="content-item ticket-details hd-col">
             
-        </div>
-        <div class="content-item ticket-updates hd-col">
-        <div class="hd-card-header">
-        <h1>Updates</h1>
-        </div>
-            <div class="newUpdateForm hd-issue-card-item">
-                <form name="newUpdate" id="newUpdate" action="/newissueupdate.php" method="POST">            
-                    <div class="form-group">
-                        <label for="updateDetails">Update Message</label>
-                        <textarea class="form-control" name="update_details" id="update_details"></textarea>
-                        <button class="btn btn-success" type="submit" value="Submit" name="submitUpdate" for="newUpdate">Submit</button>
-                        <input type="hidden" name="update_owner" value="<?= CurrentUserRepository::getUserId() ?>">        
-                        <input type="hidden" name="ticket_id" value="<?= $ticket->ticket_id ?>">
-                        <input type="hidden" name="update_is_public" value="true">
-                    </div>
-
-                    
-                </form>
-               
+            <div class="hd-card-header">
+            <h1>Issue Details</h1>
             </div>
-            <div class="updateList">
-                <?php foreach($updates as $update): ?>
-                        <div class="hd-issue-card-item">
-                            <div> <b>Detail:</b> <?= $update->update_details ?></div>
-                            <div> <b>By:</b> <?= $update->user_first_name  ?> <?= $update->user_last_name ?> </div>
-                            <div> <b>Time:</b> <?= $update->update_time ?> </div>
-                        </div>
-                <?php endforeach; ?>
+            <div class="hd-issue-card-item">
+                <h2><b>Ticket ID: </b><?= $ticket->ticket_id ?></h2>
+                User: <?= $ticket->user_first_name ?> <?= $ticket->user_last_name ?>
+
+                <?php require_once("Views/IssueUpdateFormView.php") ?>
+            </div>
+                
+            </div>
+            <div class="content-item ticket-updates hd-col">
+            <div class="hd-card-header">
+            <h1>Updates</h1>
+            </div>
+                <div class="newUpdateForm hd-issue-card-item">
+                    <form name="newUpdate" id="newUpdate" action="/newissueupdate.php" method="POST">            
+                        <div class="form-group">
+                            <label for="updateDetails">Update Message</label>
+                            <textarea class="form-control" name="update_details" id="update_details"></textarea>
+                            <button class="btn btn-color-tyndale-blue" type="submit" value="Submit" name="submitUpdate" for="newUpdate">Submit</button>
+                            <input type="hidden" name="update_owner" value="<?= CurrentUserRepository::getUserId() ?>">        
+                            <input type="hidden" name="ticket_id" value="<?= $ticket->ticket_id ?>">
+                            <input type="hidden" name="update_is_public" value="true">
+                        </div>  
+                    </form>      
+                </div>
+                <div class="updateList">
+                    <?php foreach($updates as $update): ?>
+                            <div class="hd-issue-card-item">
+                                <div> <b>Detail:</b> <?= $update->update_details ?></div>
+                                <div> <b>By:</b> <?= $update->user_first_name  ?> <?= $update->user_last_name ?> </div>
+                                <div> <b>Time:</b> <?= $update->update_time ?> </div>
+                            </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-   
-
-    
-    
+    </div>  
 </body>
 </html>
 

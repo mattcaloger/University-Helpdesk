@@ -16,9 +16,11 @@
         require_once("Repositories/IssueRepository.php");
 
         require_once("data/Database.php");
+        
         require_once("Security/Security.php");
 
         Security::checkSession();
+
         $show_alert = false;
         $alert_type="success";
         $alert_style="display:none;";
@@ -61,7 +63,7 @@
         </form>
 
         <a href="/index.php"><button class="btn btn-danger">Cancel</button></a>
-        <button class="btn btn-success" type="submit" form="newIssue" value="Submit" name="submit">Submit</button>
+        <button class="btn btn-color-tyndale-blue" type="submit" form="newIssue" value="Submit" name="submit">Submit</button>
     </div>
 </body>
 </html>
