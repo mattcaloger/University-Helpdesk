@@ -1,11 +1,14 @@
 <?php
     // Source: https://stackoverflow.com/questions/7792974/global-variable-database-connection
 
+    require_once("config.php");
+
     class Database {
         // database properties
-        private static $server = "localhost:3306"; // TODO: env var
-        private static $user = "root"; // TODO: env var
-        private static $password = ""; // TODO: env var
+        private static $server = HD_DB_SERVER; // TODO: env var
+        private static $user = HD_DB_USER; // TODO: env var
+        private static $password = HD_DB_PWD; // TODO: env var
+        private static $dsn = "mysql:dbname=" . HD_DB;
 
         private static $db;
         private $connection;
@@ -14,7 +17,8 @@
             self::$server = "localhost:3306"; // TODO: env var
             self::$user = "root"; // TODO: env var
             self::$password = ""; // TODO: env var
-            $this->connection = new PDO('mysql:host=localhost;dbname=tickets', self::$user, self::$password);
+
+            $this->connection = new PDO(self::$dsn, self::$user, self::$password);
         }
 
         function __destruct() {
