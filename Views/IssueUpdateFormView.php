@@ -108,7 +108,7 @@
 
     <div class="form-group">
         <label for="ticket_complete">Mark Ticket As Complete</label>
-        <input type="checkbox" class="" id="ticket_complete" name="ticket_complete" <?= $checked ?> value="completed">
+        <input type="checkbox" id="ticket_complete" name="ticket_complete" <?= $checked ?> value="completed">
     </div>
 
     <div class="form-group">

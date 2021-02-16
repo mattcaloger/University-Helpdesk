@@ -79,12 +79,12 @@
             </div>
             <div class="content-item ticket-updates hd-col">
             <div class="hd-card-header">
-            <h1>Updates</h1>
+            <h1>Notes</h1>
             </div>
                 <div class="newUpdateForm hd-issue-card-item">
                     <form name="newUpdate" id="newUpdate" action="/newissueupdate.php" method="POST">            
                         <div class="form-group">
-                            <label for="updateDetails">Update Message</label>
+                            <label for="updateDetails">Note Message:</label>
                             <textarea class="form-control" name="update_details" id="update_details"></textarea>
                             <button class="btn btn-color-tyndale-blue" type="submit" value="Submit" name="submitUpdate" for="newUpdate">Submit</button>
                             <input type="hidden" name="update_owner" value="<?= CurrentUserRepository::getUserId() ?>">        

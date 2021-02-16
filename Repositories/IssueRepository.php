@@ -44,6 +44,44 @@
             }
         }
 
+        public static function updateIssueWithUserRights($id, $summary, $details, $ticket_is_complete) {
+
+            echo "user";
+            try {
+                $db = Database::getConnection();
+    
+                $statement = $db->prepare('UPDATE `tickets` SET `ticket_summary`=:ticketSummary, `ticket_is_complete`=:ticket_is_complete,`ticket_details`=:ticketDetails WHERE `ticket_id`=:ticketId;');
+                $statement->bindParam(":ticketSummary", $summary);
+                $statement->bindParam(":ticketDetails", $details);
+                $statement->bindParam(":ticket_is_complete", $ticket_is_complete);
+                $statement->bindParam(":ticketId", $id);
+                $statement->execute();
+            } catch (PDOException $e) {
+                die("An error has occured." . $e);
+            }   
+        }
+
+        public static function updateIssueWithTechnicianRights($id, $summary, $details, $ticket_is_complete, $team_owner, $technician_owner) {
+
+            echo "team woner:" . $team_owner;
+
+            try {
+                $db = Database::getConnection();
+    
+                $statement = $db->prepare('UPDATE `tickets` SET `ticket_summary`=:ticketSummary, `ticket_is_complete`=:ticket_is_complete,`ticket_details`=:ticketDetails,`ticket_team_owner`=:teamOwner,`ticket_technician_owner`=:technicianOwner WHERE `ticket_id`=:ticketId;');
+                $statement->bindParam(":ticketSummary", $summary);
+                $statement->bindParam(":ticketDetails", $details);
+                $statement->bindParam(":ticket_is_complete", $ticket_is_complete);
+                $statement->bindParam(":teamOwner", $team_owner);
+                $statement->bindParam(":technicianOwner", $technician_owner);
+                $statement->bindParam(":ticketId", $id);
+                $statement->execute();
+            } catch (PDOException $e) {
+                die("An error has occured." . $e);
+            }
+            
+        }
+
         public static function getAllUncompletedTickets() {
             try {
                 $db = Database::getConnection();

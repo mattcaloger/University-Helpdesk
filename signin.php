@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <?php
@@ -46,20 +46,30 @@
         
     ?>
     <div><?=$error?></div>
-    <form action="signin.php" method="post">
-        <div>
-            Username:
-            <input type="text" name="username" id="username">
+
+    <div class="container">
+
+        <div class="hd-card-header">
+            <h1>Sign In</h1>
         </div>
-        <div>
-            Password:
-            <input type="password" name="password" id="password">
+
+        <div class="hd-issue-card-item">
+
+            <form action="signin.php" method="post">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" name="username" id="username">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" id="password">
+                        <input type="submit" class="btn btn-color-tyndale-blue" name="submit" id="submit">
+                    </div>
+                    <a href="">Forgot password?</a>
+                </div>
+            </form>
+
         </div>
-        <div>
-            <input type="submit" name="submit" id="submit">
-        </div>
-        <a href="">Forgot password?</a>
-    </form>
+    </div>
+    
 
     
 </body>
