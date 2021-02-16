@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
+-- sessionssession_id
 -- Database: `tickets`
 --
 
@@ -27,18 +27,9 @@ SET time_zone = "+00:00";
 -- Table structure for table `process_forms`
 --
 
-CREATE TABLE `process_forms` (
-  `process_id` int(11) NOT NULL,
-  `process_name` text NOT NULL,
-  `process_form_json` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`process_form_json`))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 --
 -- Dumping data for table `process_forms`
 --
-
-INSERT INTO `process_forms` (`process_id`, `process_name`, `process_form_json`) VALUES
-(1, 'newemployee', '{\"form_name\":\"New Employee\",\"form\":[{\"internalid\":\"firstname\",\"label\":\"First Name\",\"type\":\"text\",\"caption\":\"\"},{\"internalid\":\"lastname\",\"label\":\"Last Name\",\"type\":\"text\",\"caption\":\"\"},{\"internalid\":\"managername\",\"label\":\"Manager Name\",\"type\":\"text\",\"caption\":\"\"},{\"internalid\":\"department\",\"label\":\"Department\",\"type\":\"text\",\"caption\":\"\"},{\"internalid\":\"jobtitle\",\"label\":\"Job Title\",\"type\":\"text\",\"caption\":\"\"}]}');
 
 -- --------------------------------------------------------
 
@@ -49,7 +40,7 @@ INSERT INTO `process_forms` (`process_id`, `process_name`, `process_form_json`) 
 CREATE TABLE `sessions` (
   `session_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `session_token` text NOT NULL,
+  `session_token` varchar(190) NOT NULL,
   `session_expires` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -62,15 +53,6 @@ CREATE TABLE `sessions` (
 --
 -- Table structure for table `submitted_process`
 --
-
-CREATE TABLE `submitted_process` (
-  `submitted_process_id` int(11) NOT NULL,
-  `process_form_id` int(11) NOT NULL,
-  `submitted_process_response` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`submitted_process_response`)),
-  `submitted_process_creator` int(11) NOT NULL,
-  `process_status` int(11) NOT NULL,
-  `process_created` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `submitted_process`
@@ -158,7 +140,7 @@ CREATE TABLE `ticket_update` (
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
-  `user_login_name` text NOT NULL,
+  `user_login_name` varchar(190) NOT NULL,
   `user_password` text NOT NULL,
   `user_first_name` text NOT NULL,
   `user_last_name` text NOT NULL,
@@ -182,9 +164,6 @@ INSERT INTO `users` (`user_id`, `user_login_name`, `user_password`, `user_first_
 --
 -- Indexes for table `process_forms`
 --
-ALTER TABLE `process_forms`
-  ADD PRIMARY KEY (`process_id`);
-
 --
 -- Indexes for table `sessions`
 --
@@ -196,10 +175,6 @@ ALTER TABLE `sessions`
 --
 -- Indexes for table `submitted_process`
 --
-ALTER TABLE `submitted_process`
-  ADD PRIMARY KEY (`submitted_process_id`),
-  ADD KEY `process_form_id` (`process_form_id`),
-  ADD KEY `submitted_process_creator` (`submitted_process_creator`);
 
 --
 -- Indexes for table `team`
@@ -243,50 +218,45 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for table `process_forms`
 --
-ALTER TABLE `process_forms`
-  MODIFY `process_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sessions`
 --
 ALTER TABLE `sessions`
-  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `submitted_process`
 --
-ALTER TABLE `submitted_process`
-  MODIFY `submitted_process_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
-
 --
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `ticket_status`
 --
 ALTER TABLE `ticket_status`
-  MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `ticket_update`
 --
 ALTER TABLE `ticket_update`
-  MODIFY `update_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `update_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- Constraints for dumped tables
@@ -301,10 +271,6 @@ ALTER TABLE `sessions`
 --
 -- Constraints for table `submitted_process`
 --
-ALTER TABLE `submitted_process`
-  ADD CONSTRAINT `submitted_process_ibfk_1` FOREIGN KEY (`process_form_id`) REFERENCES `process_forms` (`process_id`),
-  ADD CONSTRAINT `submitted_process_ibfk_2` FOREIGN KEY (`submitted_process_creator`) REFERENCES `users` (`user_id`);
-
 --
 -- Constraints for table `tickets`
 --
