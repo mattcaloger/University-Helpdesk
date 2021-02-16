@@ -1,5 +1,5 @@
 <?php
-    require_once("data\connection.php");
+    require_once(getcwd() . "/" . "data/connection.php");
         
     function addUpdate($ticket_id, $update_details, $update_owner, $update_is_public) {
         try {

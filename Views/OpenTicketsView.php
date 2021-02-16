@@ -3,7 +3,7 @@
 <div>
     <?php
 
-    require_once("Repositories/IssueRepository.php");
+    require_once(getcwd() . "/" . "Repositories/IssueRepository.php");
 
     $uncompletedTickets = IssueRepository::getAllUncompletedTickets();
     ?>

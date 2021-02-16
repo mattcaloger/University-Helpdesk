@@ -10,9 +10,9 @@
 </head>
 <body>
     <?php
-        require_once("Components/navbar.php");
-        require_once("Repositories/CurrentUserRepository.php");
-        require_once("Security/Security.php");
+        require_once(getcwd() . "/" . "Components/navbar.php");
+        require_once(getcwd() . "/" . "Repositories/CurrentUserRepository.php");
+        require_once(getcwd() . "/" . "Security/Security.php");
 
         Security::checkSession();
 	?>

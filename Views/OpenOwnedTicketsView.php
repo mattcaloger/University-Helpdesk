@@ -1,8 +1,8 @@
 <div>
     <?php
 
-    require_once("Repositories/IssueRepository.php");
-    require_once("Repositories/CurrentUserRepository.php");
+    require_once(getcwd() . "/" . "Repositories/IssueRepository.php");
+    require_once(getcwd() . "/" . "Repositories/CurrentUserRepository.php");
 
     $ownedTickets = CurrentUserRepository::getUserOpenAssignedTickets();
     ?>

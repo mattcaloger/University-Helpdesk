@@ -1,6 +1,6 @@
 <?php
 
-    require_once("data/Database.php");
+    require_once(getcwd() . "/" . "data/Database.php");
 
     class IssueUpdateRepository {
         public static function addUpdate($ticket_id, $update_details, $update_owner, $update_is_public) {

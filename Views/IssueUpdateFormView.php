@@ -1,8 +1,8 @@
 <?php 
-    require_once("Repositories/CurrentUserRepository.php"); 
-    require_once("Repositories/IssueRepository.php");
-    require_once("Repositories/TechnicianRepository.php");
-    require_once("Repositories/TeamRepository.php");
+    require_once(getcwd() . "/" . "Repositories/CurrentUserRepository.php"); 
+    require_once(getcwd() . "/" . "Repositories/IssueRepository.php");
+    require_once(getcwd() . "/" . "Repositories/TechnicianRepository.php");
+    require_once(getcwd() . "/" . "Repositories/TeamRepository.php");
 
     if(isset($_GET['id']) === true){
         $id = $_GET['id'];
@@ -11,7 +11,7 @@
 
         $updates = IssueUpdateRepository::getUpdatesByTicketId($id);
 
-        require_once("Repositories/StatusRepository.php");
+        require_once(getcwd() . "/" . "Repositories/StatusRepository.php");
         $statuses = StatusRepository::getStatusList();
 
         

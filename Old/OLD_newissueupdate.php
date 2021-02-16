@@ -1,5 +1,5 @@
 <?php
-    require_once("DAOs/ticketUpdates.php");
+    require_once(getcwd() . "/" . "DAOs/ticketUpdates.php");
     if(isset($_POST)){
         $ticket_id = $_POST['ticket_id']; 
         $update_details = $_POST['update_details'];

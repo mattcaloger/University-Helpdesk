@@ -1,10 +1,10 @@
 <?php
-    require_once("Security/Security.php");
+    require_once(getcwd() . "/" . "Security/Security.php");
 
     Security::checkSession();
-    require_once("Repositories/IssueUpdateRepository.php");
-    require_once("Repositories/IssueRepository.php");
-    require_once("Repositories/CurrentUserRepository.php");
+    require_once(getcwd() . "/" . "Repositories/IssueUpdateRepository.php");
+    require_once(getcwd() . "/" . "Repositories/IssueRepository.php");
+    require_once(getcwd() . "/" . "Repositories/CurrentUserRepository.php");
     
 
     if(isset($_POST)){

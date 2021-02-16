@@ -1,4 +1,4 @@
 <?php 
-    require_once("Security/Security.php");
+    require_once(getcwd() . "/" . "Security/Security.php");
     Security::unsetAuthenticationCookies();
 ?>

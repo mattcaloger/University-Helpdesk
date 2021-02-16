@@ -1,5 +1,5 @@
 <?php
-    require_once("data\connection.php");
+    require_once(getcwd() . "/" . "data/connection.php");
     
     function getUserId() {
         $db = $GLOBALS['db'];

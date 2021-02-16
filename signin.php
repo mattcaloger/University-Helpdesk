@@ -9,10 +9,10 @@
 </head>
 <body>
     <?php
-        require_once("./Models/AuthenticatorModel.php");
-        require_once("./Repositories/SessionRepository.php");
-        require_once("./Repositories/UserRepository.php");
-        require_once("./Security/Security.php");
+        require_once(getcwd() . "/" . "./Models/AuthenticatorModel.php");
+        require_once(getcwd() . "/" . "./Repositories/SessionRepository.php");
+        require_once(getcwd() . "/" . "./Repositories/UserRepository.php");
+        require_once(getcwd() . "/" . "./Security/Security.php");
 
         if(isset($_COOKIE['sessionToken'])) {
             Security::redirectToHomePage();

@@ -15,7 +15,7 @@
         require_once ("Components/navbar.php");
         require_once ("Repositories/CurrentUserRepository.php");
 
-        require_once("Security/Security.php");
+        require_once(getcwd() . "/" . "Security/Security.php");
 
         Security::checkSession();
 

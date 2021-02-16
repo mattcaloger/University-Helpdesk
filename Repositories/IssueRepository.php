@@ -1,5 +1,5 @@
 <?php
-    require_once("data\Database.php");
+    require_once(getcwd() . "/" . "data/Database.php");
 
     class IssueRepository {
         public static function getTicket($ticket_id) {

@@ -1,7 +1,7 @@
 <?php
     // Source: https://stackoverflow.com/questions/7792974/global-variable-database-connection
 
-    require_once("config.php");
+    require_once(getcwd() . "/" . "config.php");
 
     class Database {
         // database properties
@@ -14,9 +14,6 @@
         private $connection;
 
         private function __construct() {
-            self::$server = "localhost:3306"; // TODO: env var
-            self::$user = "root"; // TODO: env var
-            self::$password = ""; // TODO: env var
 
             $this->connection = new PDO(self::$dsn, self::$user, self::$password);
         }

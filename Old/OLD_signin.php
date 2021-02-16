@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-        require("data\connection.php");
+        require("data/connection.php");
         $error = "";
         if(isset($_POST['password']) && isset($_POST['username'])) {
             $username = $_POST['username'];

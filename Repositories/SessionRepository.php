@@ -1,6 +1,6 @@
 <?php
-    require_once("data/Database.php");
-    require_once("Models/SessionModel.php");
+    require_once(getcwd() . "/" . "data/Database.php");
+    require_once(getcwd() . "/" . "Models/SessionModel.php");
 
     class SessionRepository {
         public static function getSessionById($session_id) {

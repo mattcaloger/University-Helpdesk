@@ -11,15 +11,15 @@
 <body>
 
     <?php
-        require_once("Components/navbar.php");
+        require_once(getcwd() . "/" . "Components/navbar.php");
 
-        require_once("Repositories/IssueRepository.php");
+        require_once(getcwd() . "/" . "Repositories/IssueRepository.php");
 
-        require_once("Repositories/CurrentUserRepository.php");
+        require_once(getcwd() . "/" . "Repositories/CurrentUserRepository.php");
 
-        require_once("Repositories/IssueUpdateRepository.php");
+        require_once(getcwd() . "/" . "Repositories/IssueUpdateRepository.php");
 
-        require_once("Security/Security.php");
+        require_once(getcwd() . "/" . "Security/Security.php");
 
         Security::checkSession();
 
@@ -30,7 +30,7 @@
     
             $updates = IssueUpdateRepository::getUpdatesByTicketId($id);
     
-            require_once("Repositories/StatusRepository.php");
+            require_once(getcwd() . "/" . "Repositories/StatusRepository.php");
             $statuses = StatusRepository::getStatusList();
     
             
@@ -73,7 +73,7 @@
                 <h2><b>Ticket ID: </b><?= $ticket->ticket_id ?></h2>
                 User: <?= $ticket->user_first_name ?> <?= $ticket->user_last_name ?>
 
-                <?php require_once("Views/IssueUpdateFormView.php") ?>
+                <?php require_once(getcwd() . "/" . "Views/IssueUpdateFormView.php") ?>
             </div>
                 
             </div>

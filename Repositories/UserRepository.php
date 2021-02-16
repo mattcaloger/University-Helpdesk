@@ -1,7 +1,7 @@
 <?php
 
-    require_once("./data/Database.php");
-    require_once("./Models/AuthenticatorModel.php");
+    require_once(getcwd() . "/" . "./data/Database.php");
+    require_once(getcwd() . "/" . "./Models/AuthenticatorModel.php");
 
     class UserRepository {
         public static function getUserByUsername($username) {

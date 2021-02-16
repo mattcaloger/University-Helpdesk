@@ -1,5 +1,5 @@
 <?php
-    require("data\connection.php");
+    require("data/connection.php");
     
     function getTicket($ticket_id) {
         

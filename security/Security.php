@@ -1,5 +1,5 @@
 <?php
-    require_once("Repositories/SessionRepository.php");
+    require_once(getcwd() . "/" . "Repositories/SessionRepository.php");
 
     class Security {
         public static function checkSession() {

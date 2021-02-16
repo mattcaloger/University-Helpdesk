@@ -1,5 +1,5 @@
 <?php
-    require_once("data/Database.php");
+    require_once(getcwd() . "/" . "data/Database.php");
     
     class StatusRepository {
         public static function getStatusList() {

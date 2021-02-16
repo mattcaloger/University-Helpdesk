@@ -1,5 +1,5 @@
 <?php 
-    require_once("repositories/CurrentUserRepository.php");
+    require_once(getcwd() . "/" . "Repositories/CurrentUserRepository.php");
 ?>
 
 <div class="header">
