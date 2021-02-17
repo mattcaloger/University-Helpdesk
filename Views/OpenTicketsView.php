@@ -17,7 +17,6 @@
                     #<?= $row->ticket_id ?>
                 </div>
                 <div class="hd-issue-card-item-content">
-                    <div>Status: <?= $row->status_name ?></div>
                     <div>Summary: <?= $row->ticket_summary ?></div>
                 </div>
         </div>

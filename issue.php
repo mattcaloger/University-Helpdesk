@@ -29,10 +29,6 @@
             $ticket = IssueRepository::getTicketWithUserDetails($id);
     
             $updates = IssueUpdateRepository::getUpdatesByTicketId($id);
-    
-            require_once(getcwd() . "/" . "Repositories/StatusRepository.php");
-            $statuses = StatusRepository::getStatusList();
-    
             
             $userDetails = CurrentUserRepository::getCurrentUserDetails();
         } else {

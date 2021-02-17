@@ -46,7 +46,7 @@
         public static function getUserOpenProcesses() {
             $db = Database::getConnection();
             $session_token = $_COOKIE['sessionToken'];
-            $statement = $db->prepare("SELECT * FROM sessions INNER JOIN submitted_process ON sessions.user_id = submitted_process.submitted_process_creator INNER JOIN ticket_status ON ticket_status.status_id = submitted_process.process_status WHERE `session_token`=:session_token;");
+            $statement = $db->prepare("SELECT * FROM sessions INNER JOIN submitted_process ON sessions.user_id = submitted_process.submitted_process_creator WHERE `session_token`=:session_token;");
             $statement->bindParam(":session_token", $session_token);
             $statement->execute();
             $result = $statement->fetchAll();
