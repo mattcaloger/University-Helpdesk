@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="hd-card-content">
-                <div class="hd-issue-card-item" onclick="location.href='/helpdesk/newissue.php'">
+                <div class="hd-issue-card-item" onclick="location.href='/helpdesk/newIssue.php'">
                     <div class="hd-issue-card-item-title">
                         Open a new issue
                     </div>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
 
-                <div class="hd-issue-card-item" onclick="location.href='/helpdesk/http://helpdesk.tyndale.ca'">
+                <div class="hd-issue-card-item" onclick="location.href='http://helpdesk.tyndale.ca'">
                     <div class="hd-issue-card-item-title">
                         Start a process
                     </div>

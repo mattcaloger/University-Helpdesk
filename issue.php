@@ -78,7 +78,7 @@
             <h1>Notes</h1>
             </div>
                 <div class="newUpdateForm hd-issue-card-item">
-                    <form name="newUpdate" id="newUpdate" action="/helpdesk/newissueupdate.php" method="POST">            
+                    <form name="newUpdate" id="newUpdate" action="/helpdesk/newIssueUpdate.php" method="POST">            
                         <div class="form-group">
                             <label for="updateDetails">Note Message:</label>
                             <textarea class="form-control" name="update_details" id="update_details"></textarea>
