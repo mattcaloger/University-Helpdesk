@@ -45,7 +45,7 @@
 						<div>You have no open issues.</div>
 					<?php else : ?>
 						<?php foreach($tickets as $row): ?>
-							<div class="hd-issue-card-item" onclick="location.href='/helpdesk//issue.php/?id=<?= $row['ticket_id'] ?>'">
+							<div class="hd-issue-card-item" onclick="location.href='/helpdesk/issue.php/?id=<?= $row['ticket_id'] ?>'">
 								<div class="hd-issue-card-item-title">
 									#<?= $row['ticket_id'] ?>
 								</div>
@@ -82,7 +82,7 @@
 						</div>
 				<?php else : ?>
 					<?php foreach($processes as $row): ?>
-						<div class="hd-issue-card-item" onclick="location.href='/helpdesk//process.php/?id=<?= $row['submitted_process_id'] ?>'">
+						<div class="hd-issue-card-item" onclick="location.href='/helpdesk/process.php/?id=<?= $row['submitted_process_id'] ?>'">
 							<div class="hd-issue-card-item-title">
 								#<?= $row['submitted_process_id'] ?>
 							</div>
