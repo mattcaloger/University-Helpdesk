@@ -1,6 +1,6 @@
 <?php
-    require_once(getcwd() . "/" . ".\Repositories\UserRepository.php");
-    require_once(getcwd() . "/" . ".\Repositories\SessionRepository.php");
+    require_once(getcwd() . "/" . "Repositories/UserRepository.php");
+    require_once(getcwd() . "/" . "Repositories/SessionRepository.php");
 
     class AuthenticatorModel
     {

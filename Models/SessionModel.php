@@ -1,9 +1,9 @@
 <?php
 
     class Session {
-        private ?int $session_id;
-        private ?int $user_id;
-        private ?string $session_token;
+        private $session_id;
+        private $user_id;
+        private $session_token;
 
         function __construct($session_id = null, $user_id = null, $session_token = null) {
             $this->$session_id = $session_id;

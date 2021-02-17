@@ -23,7 +23,7 @@
         $userDetails = CurrentUserRepository::getCurrentUserDetails();
             
         if($userDetails->user_is_technician != 1 ){
-            header('Location: /signin.php');
+            header('Location: /helpdesk/signin.php');
             exit;
         }
 

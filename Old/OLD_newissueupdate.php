@@ -8,7 +8,7 @@
         
         addUpdate($ticket_id, $update_details, $update_owner, $update_is_public);
 
-        header('Location: /issue.php/?id=' . $ticket_id);
+        header('Location: /helpdesk/issue.php/?id=' . $ticket_id);
         exit;
 
     }

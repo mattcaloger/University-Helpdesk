@@ -11,7 +11,7 @@
         <div>You have no incompleted assigned tickets.</div>
     <?php else : ?>
         <?php foreach($ownedTickets as $row): ?>
-            <div class="hd-issue-card-item" onclick="location.href='/issue.php/?id=<?= $row->ticket_id ?>'">
+            <div class="hd-issue-card-item" onclick="location.href='/helpdesk//issue.php/?id=<?= $row->ticket_id ?>'">
                 <div class="hd-issue-card-item-title">
                     #<?= $row->ticket_id ?>
                 </div>

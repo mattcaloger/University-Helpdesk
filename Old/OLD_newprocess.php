@@ -13,7 +13,7 @@
 		require_once "Components/navbar.php";
 
 		if(!isset($_COOKIE['user'])){
-			header('Location: /signin.php');
+			header('Location: /helpdesk/signin.php');
             exit;
         }
         

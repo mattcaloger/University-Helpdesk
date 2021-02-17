@@ -52,12 +52,12 @@
         }
 
         public static function redirectToSignin() {
-            header('Location: /signin.php');
+            header('Location: /helpdesk/signin.php');
             exit;
         }
 
         public static function redirectToHomepage() {
-            header('Location: /');
+            header('Location: /helpdesk/');
             exit;
         }
 

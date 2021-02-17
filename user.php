@@ -18,7 +18,7 @@
         
         $currentUser = CurrentUserRepository::getCurrentUserDetails();
         if($currentUser->user_is_admin != 1) {
-            header('Location: /signin.php');
+            header('Location: /helpdesk/signin.php');
             exit;
         }
 

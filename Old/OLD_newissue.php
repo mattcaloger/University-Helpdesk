@@ -12,7 +12,7 @@
 		include "Components/navbar.php";
 
 		if(!isset($_COOKIE['user'])){
-			header('Location: /signin.php');
+			header('Location: /helpdesk/signin.php');
             exit;
         }
         $show_alert = false;
@@ -28,7 +28,7 @@
             $show_alert = true;
             $alert_type="alert-success";
             $alert_style="";
-            $alert_message = 'Issue ' . $summary . ' has been received. <a href="/">Go back</a>';
+            $alert_message = 'Issue ' . $summary . ' has been received. <a href="/helpdesk/">Go back</a>';
 
             include_once "DAOs/currentUser.php";
             $creator=getUserId();
@@ -62,7 +62,7 @@
             </div>        
         </form>
 
-        <a href="/index.php"><button class="btn btn-danger">Cancel</button></a>
+        <a href="/helpdesk/index.php"><button class="btn btn-danger">Cancel</button></a>
         <button class="btn btn-success" type="submit" form="newIssue" value="Submit" name="submit">Submit</button>
     </div>
 </body>

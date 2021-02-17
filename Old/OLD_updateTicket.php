@@ -1,6 +1,6 @@
 <?php
     if(!isset($_COOKIE['sessionToken'])){
-        header('Location: /signin.php');
+        header('Location: /helpdesk/signin.php');
         exit;
     }
 
@@ -36,7 +36,7 @@
         $statement->execute();
 
         echo $stmt->error;
-        header('Location: /issue.php/?id=' . $id);
+        header('Location: /helpdesk/issue.php/?id=' . $id);
         exit;
 
 ?>

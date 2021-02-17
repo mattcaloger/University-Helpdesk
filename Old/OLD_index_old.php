@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Helpdesk</title>
-	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/homepage.css">
+	<link rel="stylesheet" href="/helpdesk/css/style.css">
+	<link rel="stylesheet" href="/helpdesk/css/homepage.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
@@ -13,7 +13,7 @@
 		require_once "Components/navbar.php";
 
 		if(!isset($_COOKIE['user'])){
-			header('Location: /signin.php');
+			header('Location: /helpdesk/signin.php');
             exit;
 		}
 
@@ -33,7 +33,7 @@
 						<div>My Open Issues <span class="hd-badge"><?= count($tickets) ?></span></div>
 					</div>
 					<div class="hd-card-header-button">
-						<a href="/newissue.php">
+						<a href="/helpdesk/newissue.php">
 							<button class="btn btn-primary">
 								Open A New Issue
 							</button>	
@@ -45,7 +45,7 @@
 						<div>You have no open issues.</div>
 					<?php else : ?>
 						<?php foreach($tickets as $row): ?>
-							<div class="hd-issue-card-item" onclick="location.href='/issue.php/?id=<?= $row['ticket_id'] ?>'">
+							<div class="hd-issue-card-item" onclick="location.href='/helpdesk//issue.php/?id=<?= $row['ticket_id'] ?>'">
 								<div class="hd-issue-card-item-title">
 									#<?= $row['ticket_id'] ?>
 								</div>
@@ -68,7 +68,7 @@
 						My Open Processes
 					</div>
 					<div class="hd-card-header-button">
-						<a href="/newprocess.php">
+						<a href="/helpdesk/newprocess.php">
 							<button class="btn btn-primary">
 								Start A New Process
 							</button>		
@@ -82,7 +82,7 @@
 						</div>
 				<?php else : ?>
 					<?php foreach($processes as $row): ?>
-						<div class="hd-issue-card-item" onclick="location.href='/process.php/?id=<?= $row['submitted_process_id'] ?>'">
+						<div class="hd-issue-card-item" onclick="location.href='/helpdesk//process.php/?id=<?= $row['submitted_process_id'] ?>'">
 							<div class="hd-issue-card-item-title">
 								#<?= $row['submitted_process_id'] ?>
 							</div>

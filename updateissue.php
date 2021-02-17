@@ -87,6 +87,6 @@
         IssueRepository::updateIssueWithUserRights($id, $summary, $details, $ticket_is_complete);
     }
 
-    header('Location: /issue.php/?id=' . $id);
+    header('Location: /helpdesk/issue.php/?id=' . $id);
     exit;
 ?>

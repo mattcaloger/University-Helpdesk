@@ -36,7 +36,7 @@
             $show_alert = true;
             $alert_type="alert-success";
             $alert_style="";
-            $alert_message = 'Issue ' . $summary . ' has been received. <a href="/issues.php">Go to your open issues</a>';
+            $alert_message = 'Issue ' . $summary . ' has been received. <a href="/helpdesk/issues.php">Go to your open issues</a>';
 
             $creator=CurrentUserRepository::getUserId();
 
@@ -62,7 +62,7 @@
             </div>        
         </form>
 
-        <a href="/index.php"><button class="btn btn-danger">Cancel</button></a>
+        <a href="/helpdesk/index.php"><button class="btn btn-danger">Cancel</button></a>
         <button class="btn btn-color-tyndale-blue" type="submit" form="newIssue" value="Submit" name="submit">Submit</button>
     </div>
 </body>

@@ -28,7 +28,7 @@
                     <div>Open Issues <span class="hd-badge"><?= count($tickets) ?></span></div>
                 </div>
                 <div class="hd-card-header-button">
-                    <a href="/newissue.php">
+                    <a href="/helpdesk/newissue.php">
                         <button class="btn btn-color-tyndale-blue">
                             Open A New Issue
                         </button>	
@@ -40,7 +40,7 @@
                     <div>You have no open issues.</div>
                 <?php else : ?>
                     <?php foreach($tickets as $row): ?>
-                        <div class="hd-issue-card-item" onclick="location.href='/issue.php/?id=<?= $row['ticket_id'] ?>'">
+                        <div class="hd-issue-card-item" onclick="location.href='/helpdesk//issue.php/?id=<?= $row['ticket_id'] ?>'">
                             <div class="hd-issue-card-item-title">
                                 #<?= $row['ticket_id'] ?>
                             </div>

@@ -34,7 +34,7 @@
 
                     setcookie('sessionid', $session_id, time()+3600);
                     setcookie('user', $result->user_first_name, time()+3600);
-                    header('Location: /');
+                    header('Location: /helpdesk/');
                     exit;
                 } else {
                     $error = "Incorrect username or password.";
