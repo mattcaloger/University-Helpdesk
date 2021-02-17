@@ -49,7 +49,7 @@
             <?=$alert_message?>
         </div>
 
-        <form id="newIssue" action="newissue.php" method="post">
+        <form id="newIssue" action="/helpdesk/newissue.php" method="post">
             <div class="form-group">
                 <label for="issueSummary">Issue Summary</label>
                 <input type="text" class="form-control" id="issuesummary" name="summary">

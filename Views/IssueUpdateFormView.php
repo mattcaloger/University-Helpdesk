@@ -29,7 +29,7 @@
     }
 ?>
 
-<form id="updateissue" action="/updateIssue.php" method="post">   
+<form id="updateissue" action="/helpdesk/updateIssue.php" method="post">   
 
     <?php CurrentUserRepository::getCurrentUserIsTechnician() ?>
     <div class="form-group">

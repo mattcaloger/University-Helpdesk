@@ -63,8 +63,6 @@
 
         public static function updateIssueWithTechnicianRights($id, $summary, $details, $ticket_is_complete, $team_owner, $technician_owner) {
 
-            echo "team woner:" . $team_owner;
-
             try {
                 $db = Database::getConnection();
     
@@ -85,7 +83,7 @@
         public static function getAllUncompletedTickets() {
             try {
                 $db = Database::getConnection();
-                $statement = $db->prepare('SELECT ticket.ticket_id,ticket.`ticket_summary`, ticket.`ticket_details`, ticket.`ticket_creator`, ticket.`ticket_team_owner`, ticket.`ticket_technician_owner`, user.user_id, user.user_login_name, user.user_first_name, user.user_last_name FROM `tickets` AS ticket WHERE NOT ticket.`ticket_is_complete`=1 AND `ticket_technician_owner` is null ORDER BY ticket.`ticket_id`;');
+                $statement = $db->prepare('SELECT ticket.ticket_id,ticket.`ticket_summary`, ticket.`ticket_details`, ticket.`ticket_creator`, ticket.`ticket_team_owner`, ticket.`ticket_technician_owner`, user.user_id, user.user_login_name, user.user_first_name, user.user_last_name FROM `tickets` AS ticket INNER JOIN users AS user ON ticket.ticket_creator=user.user_id WHERE NOT ticket.`ticket_is_complete`=1 AND `ticket_technician_owner` is null ORDER BY ticket.`ticket_id`;');
                 $statement->execute();
                 $result = $statement->fetchAll(PDO::FETCH_OBJ);
                 return($result);

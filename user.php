@@ -37,7 +37,7 @@
         }
     ?>
 
-    <form method="POST" action="/user.php">
+    <form method="POST" action="/helpdesk/user.php">
         <div>
             Username:
             <input type="text" name="username" id="username">

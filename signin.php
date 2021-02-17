@@ -55,7 +55,7 @@
 
         <div class="hd-issue-card-item">
 
-            <form action="signin.php" method="post">
+            <form action="/helpdesk/signin.php" method="post">
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" class="form-control" name="username" id="username">

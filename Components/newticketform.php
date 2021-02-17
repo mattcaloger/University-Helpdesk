@@ -1,4 +1,4 @@
-<form action="issue.php" method="post">
+<form action="/helpdesk/issue.php" method="post">
     <div>
         Summary: <input type="text" name="summary">
     </div>
