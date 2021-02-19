@@ -31,6 +31,12 @@
                     </div>
                 </div>
 
+                <div class="hd-issue-card-item" onclick="location.href='/helpdesk/newProcess.php'">
+                    <div class="hd-issue-card-item-title">
+                        Open a new process
+                    </div>
+                </div>
+
                 <div class="hd-issue-card-item" onclick="location.href='/helpdesk/issues.php'">
                     <div class="hd-issue-card-item-title">
                         View my current open issues

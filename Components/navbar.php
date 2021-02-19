@@ -14,6 +14,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/helpdesk/issues.php">Issues</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/helpdesk/newProcess.php">Processes</a>
+            </li>
             <?php if( CurrentUserRepository::getCurrentUserDetails()->user_is_technician == 1 ) : ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/helpdesk/technician.php">Technician</a>
