@@ -28,7 +28,7 @@
                     <div>Open Issues <span class="hd-badge"><?= count($tickets) ?></span></div>
                 </div>
                 <div class="hd-card-header-button">
-                    <a href="/helpdesk/newissue.php">
+                    <a href="/helpdesk/newIssue.php">
                         <button class="btn btn-color-tyndale-blue">
                             Open A New Issue
                         </button>	
