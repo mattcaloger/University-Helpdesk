@@ -63,7 +63,7 @@
         </form>
 
         <a href="/helpdesk/index.php"><button class="btn btn-danger">Cancel</button></a>
-        <button class="btn btn-color-tyndale-blue" type="submit" form="newIssue" value="Submit" name="submit">Submit</button>
+        <button class="btn btn-color-University-blue" type="submit" form="newIssue" value="Submit" name="submit">Submit</button>
     </div>
 </body>
 </html>

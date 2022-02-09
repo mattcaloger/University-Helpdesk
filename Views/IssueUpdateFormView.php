@@ -108,7 +108,7 @@
     </div>
 
     <div class="form-group">
-        <button class="btn btn-color-tyndale-blue" type="submit" value="Submit" name="submitIssueUpdate">Save</button>
+        <button class="btn btn-color-University-blue" type="submit" value="Submit" name="submitIssueUpdate">Save</button>
     </div>
 
     

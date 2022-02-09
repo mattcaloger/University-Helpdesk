@@ -61,7 +61,7 @@
                         <input type="text" class="form-control" name="username" id="username">
                         <label for="password">Password</label>
                         <input type="password" class="form-control" name="password" id="password">
-                        <input type="submit" class="btn btn-color-tyndale-blue" name="submit" id="submit">
+                        <input type="submit" class="btn btn-color-University-blue" name="submit" id="submit">
                     </div>
                     <a href="">Forgot password?</a>
                 </div>

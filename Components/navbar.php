@@ -5,7 +5,7 @@
 <div class="header">
     <div class="header-block left">
         <a class="nav-link active" href="/helpdesk/">
-            <div class="header-title">Tyndale Helpdesk</div>
+            <div class="header-title">University Helpdesk</div>
         </a>
         <ul class="nav">
             <li class="nav-item">

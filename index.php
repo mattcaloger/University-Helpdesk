@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tyndale Helpdesk</title>
+    <title>University Helpdesk</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     
@@ -43,11 +43,7 @@
                     </div>
                 </div>
 
-                <div class="hd-issue-card-item" onclick="location.href='http://helpdesk.tyndale.ca'">
-                    <div class="hd-issue-card-item-title">
-                        Start a process
-                    </div>
-                </div>
+            
                 
             </div>
         </div>

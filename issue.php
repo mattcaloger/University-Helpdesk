@@ -82,7 +82,7 @@
                         <div class="form-group">
                             <label for="updateDetails">Note Message:</label>
                             <textarea class="form-control" name="update_details" id="update_details"></textarea>
-                            <button class="btn btn-color-tyndale-blue" type="submit" value="Submit" name="submitUpdate" for="newUpdate">Submit</button>
+                            <button class="btn btn-color-University-blue" type="submit" value="Submit" name="submitUpdate" for="newUpdate">Submit</button>
                             <input type="hidden" name="update_owner" value="<?= CurrentUserRepository::getUserId() ?>">        
                             <input type="hidden" name="ticket_id" value="<?= $ticket->ticket_id ?>">
                             <input type="hidden" name="update_is_public" value="true">

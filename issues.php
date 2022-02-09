@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tyndale Helpdesk</title>
+    <title>University Helpdesk</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     
@@ -29,7 +29,7 @@
                 </div>
                 <div class="hd-card-header-button">
                     <a href="/helpdesk/newIssue.php">
-                        <button class="btn btn-color-tyndale-blue">
+                        <button class="btn btn-color-University-blue">
                             Open A New Issue
                         </button>	
                     </a>		
@@ -52,7 +52,7 @@
                     <?php endforeach; ?>
                 <?php endif; ?>
                 
-                <button class="btn btn-color-tyndale-blue">
+                <button class="btn btn-color-University-blue">
                     View closed Issues
                 </button>	
             </div>
